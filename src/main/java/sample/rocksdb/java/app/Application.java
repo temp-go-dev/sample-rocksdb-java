@@ -1,9 +1,6 @@
 package sample.rocksdb.java.app;
 
-import org.rocksdb.ColumnFamilyHandle;
-import org.rocksdb.Options;
-import org.rocksdb.RocksDB;
-import org.rocksdb.RocksDBException;
+import org.rocksdb.*;
 
 public class Application {
 
@@ -13,7 +10,7 @@ public class Application {
 
         try (final Options options = new Options().setCreateIfMissing(true)) {
 
-            try (final RocksDB db = RocksDB.open(options, "C:/work/tmp/rocksdb")) {
+            try (final RocksDB db = RocksDB.open(options, "C:\\Users\\bttakashimanz\\Downloads\\unified_docomo_user_v4_190515_190515_190515_190515_190521_180711")) {
 
                 byte[] key1 = "key1".getBytes();
                 byte[] key2 = "key2".getBytes();
@@ -28,6 +25,7 @@ public class Application {
 
                     } else {
                         db.put(key1, "takashimanz".getBytes());
+//                        db.get
                         db.merge(key1, "takashimanozomu".getBytes());
                     }
 
@@ -39,6 +37,10 @@ public class Application {
                     // error handling
                 }
 
+                Snapshot snapshot = db.getSnapshot();
+                ReadOptions ro = new ReadOptions();
+                ro.setSnapshot(snapshot);
+                db.get(ro, "".getBytes());
             } catch (RocksDBException e) {
                 e.printStackTrace();
             }
