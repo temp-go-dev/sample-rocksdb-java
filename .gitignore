@@ -51,3 +51,5 @@ nbdist/
 .nb-gradle/
 
 ### Gradle ###
+
+/samples/
