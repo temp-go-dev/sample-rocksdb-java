@@ -10,7 +10,7 @@ public class Application {
 
         try (final Options options = new Options().setCreateIfMissing(true)) {
 
-            try (final RocksDB db = RocksDB.open(options, "C:\\Users\\bttakashimanz\\Downloads\\unified_docomo_user_v4_190515_190515_190515_190515_190521_180711")) {
+            try (final RocksDB db = RocksDB.open(options, "{{path}}")) {
 
                 byte[] key1 = "key1".getBytes();
                 byte[] key2 = "key2".getBytes();

@@ -36,7 +36,6 @@ public class Application2 {
 
                 try {
                     FileOutputStream fos = new FileOutputStream(new File(""));
-//                    SerializationUtils.serialize();
 
                     ObjectOutputStream oos = new ObjectOutputStream(baos);
                     oos.writeObject(obj);
